@@ -16,8 +16,24 @@ The data is separated into two excel files:
 - Reviwes: **audiobook-reviews.xlsx**;
 - Sales: **audiobook-sales.xlsx**.
 
-![Star Schema](sql_database.png)
+![Star Schema](Images/logo.png)
 
-Com os dados provenientes da emopresa, iremos fazer um dashboard automatizado em Power BI para suporte e decisões sobre a empresa de forma otimizada.  
+ 
+## How to start
+
+### Prerequisites
+
+If you want to run this project on your machine, you must complete the following steps first.
+
+- Download the .xlsx files
+- Install `Tableau` on your machine
 
 
+### Data analysis
+Both files have the purchase and reviews dates. Therefore, from this, we can already ask the following questions:
+
+1. Has the number of reviews been growing?
+2. How has the score average changed over time?
+3. What is the distribution percentage among the evaluations? (5 stars, 4 stars, etc.)
+4. What percentage of customers leave reviews?
+5. view the correlations between audiobook sales and the number of reviews?
