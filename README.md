@@ -38,3 +38,11 @@ Both files have the purchase and reviews dates. Therefore, from this, we can alr
 3. What is the distribution percentage among the evaluations? (5 stars, 4 stars, etc.)
 4. What percentage of customers leave reviews?
 5. view the correlations between audiobook sales and the number of reviews?
+
+## Instruction
+To use the information from both tables you must combine them.
+<ul>
+  <li>First, load both tables on tableau</li>
+  <li>Now double click where the first table is and drag the second table where the first table is</li>
+</ul>
+
