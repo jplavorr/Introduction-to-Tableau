@@ -3,6 +3,7 @@
 ## Introduction
 An introductory project using Tableau to analyze data from an Audio Books company.
 
+![folder](Images/2846335.jpg)
 
 The data is provided by a company that produces several audiobooks and these audiobooks are being sold online. One of the main components of the online market is reviwes, this project comes with the purpose of unlocking sales insights that were not visible to a sales team and analyze the feedbacks of the company's products. The data based on excel files will be transferred to Tableau for cleaning and then creating a dashboard for future support and decisions.
 
