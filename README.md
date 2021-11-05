@@ -40,7 +40,7 @@ Both files have the purchase and reviews dates. Therefore, from this, we can alr
 5. view the correlations between audiobook sales and the number of reviews?
 
 ## Instruction
-To use the information from both tables you must combine them.
+1. To use the information from both tables you must combine them.
 <ul>
   <li>First, load both tables on tableau</li>
   <li>Now double click where the first table is and drag the second table where the first table is</li>
@@ -49,6 +49,63 @@ To use the information from both tables you must combine them.
 The initial join made is a INNER JOIN, means that the two tables we've added have a field in common, and we can combine them using that field.
 The INNER JOIN is by default using the `audio book name` variables as the link between tables. We don't want to bind via this variable, we want to join them using the `transactionID` variable present in both columns.
 
-The final result:
+Because we are with INNER JOIN, this means that the data present is from people who bought the book **and** reviewed the purchased product. But it won't be ideal, that way we lose information about the people who bought the books and didn't leave reviews. So we're going to join our tables by a LEFT JOIN. That way, we will have the information of all buyers and the reviews made by those same buyers.
 
-![image](Images/img_2.png)
+We ended up with something in this format:
+
+![image](Images/img_21.png)
+
+
+2. Create a Sheet
+<ul>
+  <li>We want to see how many transactions were recorded in total.</li>
+        <ul>
+          <li>Just drag the `number of records' column onto the sheet</li>
+          <ul>
+          <li>Result: 110.570</li>
+          </ul>
+        </ul>
+  <li>The total number of reviews can be calculated in the same way.</li>
+        <ul>
+          <li>Result: 10.798</li>
+        </ul>
+</ul>
+
+If we add the `Date of purchase` column onto the columns and change the granularity (the level of detail in a field of a dataset) to month. We can see that in December 2017 it has 0 as an answer. Which is strange, as the excel file contains information for the month of December 2017.
+
+This happens because tableau is confused with table JOINS. The best option is to use **blend**.
+
+3. Data blending is a method of combining data that supplements a table of data from one data source with columns of data from another source.
+<ul>
+  <li>We will combine the sales data from the 'audiobook sales' file with the ratings column from the 'Audiobook reviews' file.</li>
+  <li>How blend is different from JOIN?</li>
+<ul>
+ <li>You cant think of a data blend as a especific type of LEFT JOIN. Sometimes, JOIN will do a great job, but in other situations blending will bring a better and faster result, or even be the only solution.</li>
+</ul>
+   <li>Data blending is a funcionality that tableau implements automatically. With the following conditions:</li>
+<ul>
+ <li>Both data tables are separate data sources.</li>
+ <li>There is a field that serves as the connection between them.</li>
+</ul>
+ <li>What blending does is take separate query results from each data source and aggregate them in the view</li>
+ <li>To join the tables using blend:</li>
+ <ul>
+ <li>Open tableau.</li>
+ <li>Add sales table</li>
+ <li>Open sheet.</li>
+ <li>In data, add a new database (in our case, table of reviews).</li>
+</ul>
+ <li>This is how tableau performs blending. To confirm, just go to data and select 'edit relationship...'</li>
+ <ul>
+ <li>There we can see which variable tableau joined the tables.</li>
+</ul>
+<li>We will select the custom method and we will choose one more field for connection.</li>
+<ul>
+ <li>It is similar to having two primary key columns and two foreign key columns in SQL.</li>
+</ul>
+<li>Click on add and make the connections between 'date review' and 'date of purchase'</li>
+<ul>
+ <li>First you need to pass the 'Date of purchase' column to the date format.</li>
+</ul>
+</ul>
+![Blend](Images/img_blend.png)
