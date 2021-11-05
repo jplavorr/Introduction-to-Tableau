@@ -81,6 +81,7 @@ This happens because tableau is confused with table JOINS. The best option is to
   <li>How blend is different from JOIN?</li>
 <ul>
  <li>You cant think of a data blend as a especific type of LEFT JOIN. Sometimes, JOIN will do a great job, but in other situations blending will bring a better and faster result, or even be the only solution.</li>
+ <li>If two tables are containing duplicate values ​​that are not properly aggregated, JOIN will yield a different result (like what we saw earlier). Therefore, in this case the use of blend is preferable.</li>
 </ul>
    <li>Data blending is a funcionality that tableau implements automatically. With the following conditions:</li>
 <ul>
