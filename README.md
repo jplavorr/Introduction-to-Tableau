@@ -108,4 +108,5 @@ This happens because tableau is confused with table JOINS. The best option is to
  <li>First you need to pass the 'Date of purchase' column to the date format.</li>
 </ul>
 </ul>
+
 ![Blend](Images/img_blend.png)
