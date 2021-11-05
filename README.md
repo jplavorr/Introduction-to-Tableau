@@ -46,3 +46,9 @@ To use the information from both tables you must combine them.
   <li>Now double click where the first table is and drag the second table where the first table is</li>
 </ul>
 
+The initial join made is a INNER JOIN, means that the two tables we've added have a field in common, and we can combine them using that field.
+The INNER JOIN is by default using the `audio book name` variables as the link between tables. We don't want to bind via this variable, we want to join them using the `transactionID` variable present in both columns.
+
+The final result:
+
+![image](Images/img_2.png)
