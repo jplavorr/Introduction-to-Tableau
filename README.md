@@ -65,13 +65,16 @@ We ended up with something in this format:
           <li>Result: 110.570</li>
           </ul>
         </ul>
-  <li>The total number of reviews can be calculated in the same way.</li>
+  <li>The total number of reviews can be calculated in the same way using the rating variable.</li>
+      <ul>
+       <li>Just change the attribute from sum to <b>count</b>.</li>
         <ul>
           <li>Result: 10.798</li>
         </ul>
+      </ul>
 </ul>
 
-If we add the `Date of purchase` column onto the columns and change the granularity (the level of detail in a field of a dataset) to month. We can see that in December 2017 it has 0 as an answer. Which is strange, as the excel file contains information for the month of December 2017.
+If we add the `Date of purchase` column onto the columns along with the rating variable present in the measures, and change the granularity (the level of detail in a field of a dataset) to month. We can see that in December 2017 it has 0 rating count. Which is strange, as the excel file in review contains information for that month of 2017.
 
 This happens because tableau is confused with table JOINS. The best option is to use **blend**.
 
@@ -107,7 +110,28 @@ This happens because tableau is confused with table JOINS. The best option is to
 <li>Click on add and make the connections between 'date review' and 'date of purchase'</li>
 <ul>
  <li>First you need to pass the 'Date of purchase' column to the date format.</li>
+ <li>All work takes place in the sheet we created!</li>
 </ul>
 </ul>
 
 ![Blend](Images/img_blend.png)
+
+<ul>
+ <li>When mixing information from different tables, tableau will generate an error saying they are not connected. To solve this, just click on the link symbol after the name TransactionID on the left.</li>
+ <li>Now if we perform the same steps as before, pass the Count(ratings) column to measures, put the date of purchase variable in column and change the granularity to month. We will note that in December 2017 it is empty!</li>
+ <li>To fix, just go into data and do the following steps:</li>
+<ul>
+ <li>Select 'edit relationship...'</li>
+ <li>remove all relationships presents</li>
+ <li>Click in add</li>
+ <li>Expand the date of purchase variable</li>
+ <ul>
+ <li>Link YEAR(date of purchase) with YEAR(review date)</li>
+ <li>Link MONTH(date of purchase) with MONTH(review date)</li>
+</ul>
+ <li>Click OK and go back to the data and everything will be fixed.</li>
+</ul>
+<li>Now we see that in December 2017, we had a total of 653 reviews!</li>
+</ul>
+
+4. First Chart
